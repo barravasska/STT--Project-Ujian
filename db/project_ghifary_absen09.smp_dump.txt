@@ -1,0 +1,14 @@
+
+State Machine - |project_ghifary_absen09|current_st
+Name current_st.RED_ST current_st.YELLOW_ST current_st.GREEN_ST current_st.IDLE 
+current_st.IDLE 0 0 0 0 
+current_st.GREEN_ST 0 0 1 1 
+current_st.YELLOW_ST 0 1 0 1 
+current_st.RED_ST 1 0 0 1 
+
+State Machine - |project_ghifary_absen09|lcd_driver:u_lcd|state
+Name state.SEND_CHAR state.REFRESH_WAIT state.INIT state.POWER_UP 
+state.POWER_UP 0 0 0 0 
+state.INIT 0 0 1 1 
+state.REFRESH_WAIT 0 1 0 1 
+state.SEND_CHAR 1 0 0 1 

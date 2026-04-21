@@ -1,0 +1,806 @@
+Classic Timing Analyzer report for project_ghifary_absen09
+Tue Apr 21 13:57:05 2026
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                             ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+-------------------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                           ; To                                                                ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+-------------------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 12.482 ns                        ; clr                            ; timer_cnt[16]                                                     ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 13.354 ns                        ; digit_val[2]                   ; s[6]                                                              ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -4.841 ns                        ; colk[3]                        ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 113.92 MHz ( period = 8.778 ns ) ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|state.REFRESH_WAIT                               ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                ;                                                                   ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+-------------------------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP1C12Q240C8       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                               ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                           ; To                                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 113.92 MHz ( period = 8.778 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.508 ns                ;
+; N/A                                     ; 113.93 MHz ( period = 8.777 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.507 ns                ;
+; N/A                                     ; 115.92 MHz ( period = 8.627 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.357 ns                ;
+; N/A                                     ; 115.93 MHz ( period = 8.626 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.356 ns                ;
+; N/A                                     ; 116.33 MHz ( period = 8.596 ns )                    ; lcd_driver:u_lcd|delay_cnt[25] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.326 ns                ;
+; N/A                                     ; 116.35 MHz ( period = 8.595 ns )                    ; lcd_driver:u_lcd|delay_cnt[25] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.325 ns                ;
+; N/A                                     ; 117.18 MHz ( period = 8.534 ns )                    ; lcd_driver:u_lcd|delay_cnt[27] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.273 ns                ;
+; N/A                                     ; 117.19 MHz ( period = 8.533 ns )                    ; lcd_driver:u_lcd|delay_cnt[27] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.272 ns                ;
+; N/A                                     ; 117.26 MHz ( period = 8.528 ns )                    ; lcd_driver:u_lcd|delay_cnt[22] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.258 ns                ;
+; N/A                                     ; 117.27 MHz ( period = 8.527 ns )                    ; lcd_driver:u_lcd|delay_cnt[22] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.257 ns                ;
+; N/A                                     ; 117.48 MHz ( period = 8.512 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.242 ns                ;
+; N/A                                     ; 117.50 MHz ( period = 8.511 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.241 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.83 MHz ( period = 8.487 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.226 ns                ;
+; N/A                                     ; 117.98 MHz ( period = 8.476 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.206 ns                ;
+; N/A                                     ; 117.99 MHz ( period = 8.475 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.205 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.27 MHz ( period = 8.455 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.194 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[24]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[23]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[20]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[22]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[21]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[25]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[19]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[18]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[17]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.29 MHz ( period = 8.454 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[16]      ; clk        ; clk      ; None                        ; None                      ; 8.193 ns                ;
+; N/A                                     ; 118.46 MHz ( period = 8.442 ns )                    ; lcd_driver:u_lcd|delay_cnt[9]  ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.172 ns                ;
+; N/A                                     ; 118.47 MHz ( period = 8.441 ns )                    ; lcd_driver:u_lcd|delay_cnt[9]  ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.171 ns                ;
+; N/A                                     ; 118.68 MHz ( period = 8.426 ns )                    ; lcd_driver:u_lcd|delay_cnt[28] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.165 ns                ;
+; N/A                                     ; 118.69 MHz ( period = 8.425 ns )                    ; lcd_driver:u_lcd|delay_cnt[28] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.164 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[24]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[23]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[20]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[22]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[21]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[25]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[19]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[18]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[17]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.74 MHz ( period = 8.422 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[16]      ; clk        ; clk      ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 118.98 MHz ( period = 8.405 ns )                    ; lcd_driver:u_lcd|delay_cnt[19] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.135 ns                ;
+; N/A                                     ; 118.99 MHz ( period = 8.404 ns )                    ; lcd_driver:u_lcd|delay_cnt[19] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.134 ns                ;
+; N/A                                     ; 119.09 MHz ( period = 8.397 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.127 ns                ;
+; N/A                                     ; 119.10 MHz ( period = 8.396 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.126 ns                ;
+; N/A                                     ; 119.40 MHz ( period = 8.375 ns )                    ; lcd_driver:u_lcd|delay_cnt[26] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.114 ns                ;
+; N/A                                     ; 119.42 MHz ( period = 8.374 ns )                    ; lcd_driver:u_lcd|delay_cnt[26] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.113 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.80 MHz ( period = 8.347 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.086 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.88 MHz ( period = 8.342 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.081 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[31]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[26]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[27]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[28]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[29]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 119.95 MHz ( period = 8.337 ns )                    ; lcd_driver:u_lcd|delay_cnt[20] ; lcd_driver:u_lcd|delay_cnt[30]      ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.02 MHz ( period = 8.332 ns )                    ; lcd_driver:u_lcd|delay_cnt[11] ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.071 ns                ;
+; N/A                                     ; 120.08 MHz ( period = 8.328 ns )                    ; lcd_driver:u_lcd|delay_cnt[31] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.067 ns                ;
+; N/A                                     ; 120.09 MHz ( period = 8.327 ns )                    ; lcd_driver:u_lcd|delay_cnt[31] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.066 ns                ;
+; N/A                                     ; 120.25 MHz ( period = 8.316 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.046 ns                ;
+; N/A                                     ; 120.26 MHz ( period = 8.315 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.045 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[24]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[23]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[20]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[22]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[21]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[25]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[19]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[18]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[17]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.28 MHz ( period = 8.314 ns )                    ; lcd_driver:u_lcd|delay_cnt[5]  ; lcd_driver:u_lcd|delay_cnt[16]      ; clk        ; clk      ; None                        ; None                      ; 8.053 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.29 MHz ( period = 8.313 ns )                    ; lcd_driver:u_lcd|delay_cnt[14] ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 120.31 MHz ( period = 8.312 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|state.REFRESH_WAIT ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.32 MHz ( period = 8.311 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|state.POWER_UP     ; clk        ; clk      ; None                        ; None                      ; 8.041 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[24]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[23]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[20]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[22]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[21]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[25]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[19]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[18]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[17]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.35 MHz ( period = 8.309 ns )                    ; lcd_driver:u_lcd|delay_cnt[21] ; lcd_driver:u_lcd|delay_cnt[16]      ; clk        ; clk      ; None                        ; None                      ; 8.048 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[31]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[26]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[27]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[28]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[29]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.41 MHz ( period = 8.305 ns )                    ; lcd_driver:u_lcd|delay_cnt[24] ; lcd_driver:u_lcd|delay_cnt[30]      ; clk        ; clk      ; None                        ; None                      ; 8.035 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[10]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[11]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[0]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[1]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[2]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[3]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[5]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[4]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[12]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.42 MHz ( period = 8.304 ns )                    ; lcd_driver:u_lcd|delay_cnt[4]  ; lcd_driver:u_lcd|delay_cnt[14]      ; clk        ; clk      ; None                        ; None                      ; 8.043 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[9]       ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[8]       ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[7]       ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[6]       ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[13]      ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; N/A                                     ; 120.44 MHz ( period = 8.303 ns )                    ; lcd_driver:u_lcd|delay_cnt[7]  ; lcd_driver:u_lcd|delay_cnt[15]      ; clk        ; clk      ; None                        ; None                      ; 8.042 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                ;                                     ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                         ;
++-------+--------------+------------+----------+-------------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                                                                ; To Clock ;
++-------+--------------+------------+----------+-------------------------------------------------------------------+----------+
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[25]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[20]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[24]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[23]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[22]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[21]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[19]                                                     ; clk      ;
+; N/A   ; None         ; 12.482 ns  ; clr      ; timer_cnt[16]                                                     ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[15]                                                     ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[18]                                                     ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[17]                                                     ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[5]                                                      ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[7]                                                      ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[6]                                                      ; clk      ;
+; N/A   ; None         ; 12.423 ns  ; clr      ; timer_cnt[4]                                                      ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[2]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[6]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[3]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[0]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[4]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[1]                                    ; clk      ;
+; N/A   ; None         ; 12.227 ns  ; sw_start ; lcd_driver:u_lcd|char_index[5]                                    ; clk      ;
+; N/A   ; None         ; 12.121 ns  ; clr      ; timer_cnt[27]                                                     ; clk      ;
+; N/A   ; None         ; 12.121 ns  ; clr      ; timer_cnt[26]                                                     ; clk      ;
+; N/A   ; None         ; 12.119 ns  ; clr      ; timer_cnt[31]                                                     ; clk      ;
+; N/A   ; None         ; 12.119 ns  ; clr      ; timer_cnt[30]                                                     ; clk      ;
+; N/A   ; None         ; 12.119 ns  ; clr      ; timer_cnt[29]                                                     ; clk      ;
+; N/A   ; None         ; 12.119 ns  ; clr      ; timer_cnt[28]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[10]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[14]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[13]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[12]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[11]                                                     ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[9]                                                      ; clk      ;
+; N/A   ; None         ; 12.093 ns  ; clr      ; timer_cnt[8]                                                      ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[25]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[20]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[24]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[23]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[22]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[21]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[19]                                                     ; clk      ;
+; N/A   ; None         ; 12.047 ns  ; sw_start ; timer_cnt[16]                                                     ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[15]                                                     ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[18]                                                     ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[17]                                                     ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[5]                                                      ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[7]                                                      ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[6]                                                      ; clk      ;
+; N/A   ; None         ; 11.988 ns  ; sw_start ; timer_cnt[4]                                                      ; clk      ;
+; N/A   ; None         ; 11.967 ns  ; clr      ; timer_cnt[3]                                                      ; clk      ;
+; N/A   ; None         ; 11.967 ns  ; clr      ; timer_cnt[2]                                                      ; clk      ;
+; N/A   ; None         ; 11.967 ns  ; clr      ; timer_cnt[0]                                                      ; clk      ;
+; N/A   ; None         ; 11.961 ns  ; sw_start ; lcd_driver:u_lcd|d[6]                                             ; clk      ;
+; N/A   ; None         ; 11.879 ns  ; sw_start ; lcd_driver:u_lcd|d[5]                                             ; clk      ;
+; N/A   ; None         ; 11.686 ns  ; sw_start ; timer_cnt[27]                                                     ; clk      ;
+; N/A   ; None         ; 11.686 ns  ; sw_start ; timer_cnt[26]                                                     ; clk      ;
+; N/A   ; None         ; 11.684 ns  ; sw_start ; timer_cnt[31]                                                     ; clk      ;
+; N/A   ; None         ; 11.684 ns  ; sw_start ; timer_cnt[30]                                                     ; clk      ;
+; N/A   ; None         ; 11.684 ns  ; sw_start ; timer_cnt[29]                                                     ; clk      ;
+; N/A   ; None         ; 11.684 ns  ; sw_start ; timer_cnt[28]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[10]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[14]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[13]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[12]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[11]                                                     ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[9]                                                      ; clk      ;
+; N/A   ; None         ; 11.658 ns  ; sw_start ; timer_cnt[8]                                                      ; clk      ;
+; N/A   ; None         ; 11.532 ns  ; sw_start ; timer_cnt[3]                                                      ; clk      ;
+; N/A   ; None         ; 11.532 ns  ; sw_start ; timer_cnt[2]                                                      ; clk      ;
+; N/A   ; None         ; 11.532 ns  ; sw_start ; timer_cnt[0]                                                      ; clk      ;
+; N/A   ; None         ; 11.207 ns  ; sw_start ; lcd_driver:u_lcd|d[4]                                             ; clk      ;
+; N/A   ; None         ; 11.157 ns  ; sw_start ; lcd_driver:u_lcd|d[0]                                             ; clk      ;
+; N/A   ; None         ; 10.962 ns  ; sw_start ; lcd_driver:u_lcd|d[1]                                             ; clk      ;
+; N/A   ; None         ; 10.924 ns  ; sw_start ; lcd_driver:u_lcd|d[3]                                             ; clk      ;
+; N/A   ; None         ; 10.728 ns  ; sw_start ; timer_cnt[1]                                                      ; clk      ;
+; N/A   ; None         ; 10.658 ns  ; clr      ; timer_cnt[1]                                                      ; clk      ;
+; N/A   ; None         ; 10.626 ns  ; sw_start ; lcd_driver:u_lcd|d[2]                                             ; clk      ;
+; N/A   ; None         ; 10.460 ns  ; sw_start ; current_st.GREEN_ST                                               ; clk      ;
+; N/A   ; None         ; 10.306 ns  ; clr      ; led_g~reg0                                                        ; clk      ;
+; N/A   ; None         ; 10.090 ns  ; sw_start ; lcd_driver:u_lcd|saved_show_abs                                   ; clk      ;
+; N/A   ; None         ; 10.090 ns  ; sw_start ; lcd_driver:u_lcd|saved_sw_start                                   ; clk      ;
+; N/A   ; None         ; 9.444 ns   ; clr      ; led_y~reg0                                                        ; clk      ;
+; N/A   ; None         ; 8.979 ns   ; clr      ; led_r~reg0                                                        ; clk      ;
+; N/A   ; None         ; 8.519 ns   ; sw_start ; current_st.IDLE                                                   ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A   ; None         ; 8.483 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A   ; None         ; 8.184 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A   ; None         ; 8.139 ns   ; sw_start ; lcd_driver:u_lcd|d[7]                                             ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A   ; None         ; 8.001 ns   ; colk[1]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A   ; None         ; 7.863 ns   ; sw_start ; current_st.YELLOW_ST                                              ; clk      ;
+; N/A   ; None         ; 7.857 ns   ; sw_start ; current_st.RED_ST                                                 ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A   ; None         ; 7.792 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A   ; None         ; 7.702 ns   ; colk[0]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A   ; None         ; 7.310 ns   ; colk[2]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A   ; None         ; 7.285 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A   ; None         ; 6.812 ns   ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A   ; None         ; 6.803 ns   ; colk[3]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A   ; None         ; 6.513 ns   ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A   ; None         ; 6.371 ns   ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A   ; None         ; 6.370 ns   ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A   ; None         ; 6.121 ns   ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A   ; None         ; 6.091 ns   ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A   ; None         ; 6.072 ns   ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A   ; None         ; 6.071 ns   ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A   ; None         ; 5.792 ns   ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A   ; None         ; 5.680 ns   ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A   ; None         ; 5.679 ns   ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A   ; None         ; 5.614 ns   ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A   ; None         ; 5.173 ns   ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A   ; None         ; 5.172 ns   ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A   ; None         ; 4.893 ns   ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
++-------+--------------+------------+----------+-------------------------------------------------------------------+----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                            ;
++-------+--------------+------------+-------------------------------------------------------------------+-----------+------------+
+; Slack ; Required tco ; Actual tco ; From                                                              ; To        ; From Clock ;
++-------+--------------+------------+-------------------------------------------------------------------+-----------+------------+
+; N/A   ; None         ; 13.354 ns  ; digit_val[2]                                                      ; s[6]      ; clk        ;
+; N/A   ; None         ; 13.353 ns  ; digit_val[2]                                                      ; s[2]      ; clk        ;
+; N/A   ; None         ; 13.351 ns  ; digit_val[2]                                                      ; s[1]      ; clk        ;
+; N/A   ; None         ; 13.179 ns  ; digit_val[0]                                                      ; s[2]      ; clk        ;
+; N/A   ; None         ; 13.174 ns  ; digit_val[0]                                                      ; s[6]      ; clk        ;
+; N/A   ; None         ; 13.171 ns  ; digit_val[0]                                                      ; s[1]      ; clk        ;
+; N/A   ; None         ; 13.039 ns  ; digit_val[3]                                                      ; s[2]      ; clk        ;
+; N/A   ; None         ; 13.034 ns  ; digit_val[3]                                                      ; s[6]      ; clk        ;
+; N/A   ; None         ; 13.024 ns  ; digit_val[3]                                                      ; s[1]      ; clk        ;
+; N/A   ; None         ; 12.917 ns  ; digit_val[2]                                                      ; s[4]      ; clk        ;
+; N/A   ; None         ; 12.910 ns  ; digit_val[2]                                                      ; s[3]      ; clk        ;
+; N/A   ; None         ; 12.902 ns  ; digit_val[2]                                                      ; s[5]      ; clk        ;
+; N/A   ; None         ; 12.854 ns  ; digit_val[1]                                                      ; s[2]      ; clk        ;
+; N/A   ; None         ; 12.850 ns  ; digit_val[1]                                                      ; s[6]      ; clk        ;
+; N/A   ; None         ; 12.842 ns  ; digit_val[1]                                                      ; s[1]      ; clk        ;
+; N/A   ; None         ; 12.737 ns  ; digit_val[0]                                                      ; s[4]      ; clk        ;
+; N/A   ; None         ; 12.735 ns  ; digit_val[0]                                                      ; s[3]      ; clk        ;
+; N/A   ; None         ; 12.726 ns  ; digit_val[0]                                                      ; s[5]      ; clk        ;
+; N/A   ; None         ; 12.595 ns  ; digit_val[3]                                                      ; s[3]      ; clk        ;
+; N/A   ; None         ; 12.591 ns  ; digit_val[3]                                                      ; s[5]      ; clk        ;
+; N/A   ; None         ; 12.591 ns  ; digit_val[3]                                                      ; s[4]      ; clk        ;
+; N/A   ; None         ; 12.481 ns  ; digit_val[2]                                                      ; s[0]      ; clk        ;
+; N/A   ; None         ; 12.425 ns  ; digit_val[0]                                                      ; s[0]      ; clk        ;
+; N/A   ; None         ; 12.410 ns  ; digit_val[1]                                                      ; s[3]      ; clk        ;
+; N/A   ; None         ; 12.409 ns  ; digit_val[1]                                                      ; s[4]      ; clk        ;
+; N/A   ; None         ; 12.405 ns  ; digit_val[1]                                                      ; s[5]      ; clk        ;
+; N/A   ; None         ; 12.292 ns  ; digit_val[3]                                                      ; s[0]      ; clk        ;
+; N/A   ; None         ; 11.981 ns  ; digit_val[1]                                                      ; s[0]      ; clk        ;
+; N/A   ; None         ; 9.857 ns   ; lcd_driver:u_lcd|d[2]                                             ; lcd_d[2]  ; clk        ;
+; N/A   ; None         ; 9.663 ns   ; lcd_driver:u_lcd|d[0]                                             ; lcd_d[0]  ; clk        ;
+; N/A   ; None         ; 9.496 ns   ; lcd_driver:u_lcd|rs                                               ; lcd_rs    ; clk        ;
+; N/A   ; None         ; 9.385 ns   ; lcd_driver:u_lcd|d[3]                                             ; lcd_d[3]  ; clk        ;
+; N/A   ; None         ; 9.227 ns   ; selout[1]~reg0                                                    ; selout[1] ; clk        ;
+; N/A   ; None         ; 9.220 ns   ; led_y~reg0                                                        ; led_y     ; clk        ;
+; N/A   ; None         ; 9.143 ns   ; lcd_driver:u_lcd|d[1]                                             ; lcd_d[1]  ; clk        ;
+; N/A   ; None         ; 9.115 ns   ; lcd_driver:u_lcd|d[5]                                             ; lcd_d[5]  ; clk        ;
+; N/A   ; None         ; 8.983 ns   ; lcd_driver:u_lcd|d[4]                                             ; lcd_d[4]  ; clk        ;
+; N/A   ; None         ; 8.842 ns   ; led_g~reg0                                                        ; led_g     ; clk        ;
+; N/A   ; None         ; 8.809 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; rowk[3]   ; clk        ;
+; N/A   ; None         ; 8.806 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; rowk[2]   ; clk        ;
+; N/A   ; None         ; 8.797 ns   ; lcd_driver:u_lcd|d[6]                                             ; lcd_d[6]  ; clk        ;
+; N/A   ; None         ; 8.787 ns   ; lcd_driver:u_lcd|d[7]                                             ; lcd_d[7]  ; clk        ;
+; N/A   ; None         ; 8.776 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; rowk[1]   ; clk        ;
+; N/A   ; None         ; 8.768 ns   ; selout[0]~reg0                                                    ; selout[0] ; clk        ;
+; N/A   ; None         ; 8.746 ns   ; lcd_driver:u_lcd|en                                               ; lcd_en    ; clk        ;
+; N/A   ; None         ; 8.618 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; rowk[3]   ; clk        ;
+; N/A   ; None         ; 8.615 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; rowk[2]   ; clk        ;
+; N/A   ; None         ; 8.480 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; rowk[1]   ; clk        ;
+; N/A   ; None         ; 8.476 ns   ; led_r~reg0                                                        ; led_r     ; clk        ;
+; N/A   ; None         ; 8.359 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; rowk[0]   ; clk        ;
+; N/A   ; None         ; 8.063 ns   ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; rowk[0]   ; clk        ;
++-------+--------------+------------+-------------------------------------------------------------------+-----------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                 ;
++---------------+-------------+------------+----------+-------------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From     ; To                                                                ; To Clock ;
++---------------+-------------+------------+----------+-------------------------------------------------------------------+----------+
+; N/A           ; None        ; -4.841 ns  ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A           ; None        ; -5.120 ns  ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A           ; None        ; -5.121 ns  ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A           ; None        ; -5.348 ns  ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A           ; None        ; -5.562 ns  ; colk[3]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A           ; None        ; -5.627 ns  ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A           ; None        ; -5.628 ns  ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A           ; None        ; -5.740 ns  ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A           ; None        ; -6.019 ns  ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A           ; None        ; -6.020 ns  ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A           ; None        ; -6.039 ns  ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3] ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A           ; None        ; -6.054 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A           ; None        ; -6.069 ns  ; colk[2]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A           ; None        ; -6.318 ns  ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[0] ; clk      ;
+; N/A           ; None        ; -6.319 ns  ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[1] ; clk      ;
+; N/A           ; None        ; -6.461 ns  ; colk[0]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A           ; None        ; -6.560 ns  ; colk[3]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A           ; None        ; -6.561 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A           ; None        ; -6.760 ns  ; colk[1]  ; keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[2] ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A           ; None        ; -6.953 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A           ; None        ; -7.067 ns  ; colk[2]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[0]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[1]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[2]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[3]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[4]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[5]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[6]                                ; clk      ;
+; N/A           ; None        ; -7.252 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[7]                                ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; colk[0]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A           ; None        ; -7.615 ns  ; sw_start ; lcd_driver:u_lcd|saved_sw_start                                   ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[8]                                ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[9]                                ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[10]                               ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[11]                               ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[12]                               ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[13]                               ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[14]                               ; clk      ;
+; N/A           ; None        ; -7.758 ns  ; colk[1]  ; keybpg:u_key|debounceg:u0|count[15]                               ; clk      ;
+; N/A           ; None        ; -7.805 ns  ; sw_start ; current_st.RED_ST                                                 ; clk      ;
+; N/A           ; None        ; -7.811 ns  ; sw_start ; current_st.YELLOW_ST                                              ; clk      ;
+; N/A           ; None        ; -8.055 ns  ; sw_start ; current_st.GREEN_ST                                               ; clk      ;
+; N/A           ; None        ; -8.087 ns  ; sw_start ; lcd_driver:u_lcd|d[7]                                             ; clk      ;
+; N/A           ; None        ; -8.467 ns  ; sw_start ; current_st.IDLE                                                   ; clk      ;
+; N/A           ; None        ; -8.927 ns  ; clr      ; led_r~reg0                                                        ; clk      ;
+; N/A           ; None        ; -9.258 ns  ; sw_start ; lcd_driver:u_lcd|d[1]                                             ; clk      ;
+; N/A           ; None        ; -9.392 ns  ; clr      ; led_y~reg0                                                        ; clk      ;
+; N/A           ; None        ; -9.472 ns  ; sw_start ; lcd_driver:u_lcd|d[4]                                             ; clk      ;
+; N/A           ; None        ; -9.766 ns  ; sw_start ; lcd_driver:u_lcd|d[3]                                             ; clk      ;
+; N/A           ; None        ; -9.908 ns  ; sw_start ; lcd_driver:u_lcd|d[5]                                             ; clk      ;
+; N/A           ; None        ; -10.038 ns ; sw_start ; lcd_driver:u_lcd|saved_show_abs                                   ; clk      ;
+; N/A           ; None        ; -10.203 ns ; sw_start ; lcd_driver:u_lcd|d[0]                                             ; clk      ;
+; N/A           ; None        ; -10.254 ns ; clr      ; led_g~reg0                                                        ; clk      ;
+; N/A           ; None        ; -10.574 ns ; sw_start ; lcd_driver:u_lcd|d[2]                                             ; clk      ;
+; N/A           ; None        ; -10.606 ns ; clr      ; timer_cnt[1]                                                      ; clk      ;
+; N/A           ; None        ; -10.676 ns ; sw_start ; timer_cnt[1]                                                      ; clk      ;
+; N/A           ; None        ; -11.480 ns ; sw_start ; timer_cnt[3]                                                      ; clk      ;
+; N/A           ; None        ; -11.480 ns ; sw_start ; timer_cnt[2]                                                      ; clk      ;
+; N/A           ; None        ; -11.480 ns ; sw_start ; timer_cnt[0]                                                      ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[10]                                                     ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[14]                                                     ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[13]                                                     ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[12]                                                     ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[11]                                                     ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[9]                                                      ; clk      ;
+; N/A           ; None        ; -11.606 ns ; sw_start ; timer_cnt[8]                                                      ; clk      ;
+; N/A           ; None        ; -11.632 ns ; sw_start ; timer_cnt[31]                                                     ; clk      ;
+; N/A           ; None        ; -11.632 ns ; sw_start ; timer_cnt[30]                                                     ; clk      ;
+; N/A           ; None        ; -11.632 ns ; sw_start ; timer_cnt[29]                                                     ; clk      ;
+; N/A           ; None        ; -11.632 ns ; sw_start ; timer_cnt[28]                                                     ; clk      ;
+; N/A           ; None        ; -11.634 ns ; sw_start ; timer_cnt[27]                                                     ; clk      ;
+; N/A           ; None        ; -11.634 ns ; sw_start ; timer_cnt[26]                                                     ; clk      ;
+; N/A           ; None        ; -11.909 ns ; sw_start ; lcd_driver:u_lcd|d[6]                                             ; clk      ;
+; N/A           ; None        ; -11.915 ns ; clr      ; timer_cnt[3]                                                      ; clk      ;
+; N/A           ; None        ; -11.915 ns ; clr      ; timer_cnt[2]                                                      ; clk      ;
+; N/A           ; None        ; -11.915 ns ; clr      ; timer_cnt[0]                                                      ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[15]                                                     ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[18]                                                     ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[17]                                                     ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[5]                                                      ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[7]                                                      ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[6]                                                      ; clk      ;
+; N/A           ; None        ; -11.936 ns ; sw_start ; timer_cnt[4]                                                      ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[25]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[20]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[24]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[23]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[22]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[21]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[19]                                                     ; clk      ;
+; N/A           ; None        ; -11.995 ns ; sw_start ; timer_cnt[16]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[10]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[14]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[13]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[12]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[11]                                                     ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[9]                                                      ; clk      ;
+; N/A           ; None        ; -12.041 ns ; clr      ; timer_cnt[8]                                                      ; clk      ;
+; N/A           ; None        ; -12.067 ns ; clr      ; timer_cnt[31]                                                     ; clk      ;
+; N/A           ; None        ; -12.067 ns ; clr      ; timer_cnt[30]                                                     ; clk      ;
+; N/A           ; None        ; -12.067 ns ; clr      ; timer_cnt[29]                                                     ; clk      ;
+; N/A           ; None        ; -12.067 ns ; clr      ; timer_cnt[28]                                                     ; clk      ;
+; N/A           ; None        ; -12.069 ns ; clr      ; timer_cnt[27]                                                     ; clk      ;
+; N/A           ; None        ; -12.069 ns ; clr      ; timer_cnt[26]                                                     ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[2]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[6]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[3]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[0]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[4]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[1]                                    ; clk      ;
+; N/A           ; None        ; -12.175 ns ; sw_start ; lcd_driver:u_lcd|char_index[5]                                    ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[15]                                                     ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[18]                                                     ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[17]                                                     ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[5]                                                      ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[7]                                                      ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[6]                                                      ; clk      ;
+; N/A           ; None        ; -12.371 ns ; clr      ; timer_cnt[4]                                                      ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[25]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[20]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[24]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[23]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[22]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[21]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[19]                                                     ; clk      ;
+; N/A           ; None        ; -12.430 ns ; clr      ; timer_cnt[16]                                                     ; clk      ;
++---------------+-------------+------------+----------+-------------------------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue Apr 21 13:57:05 2026
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off project_ghifary_absen09 -c project_ghifary_absen09 --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 113.92 MHz between source register "lcd_driver:u_lcd|delay_cnt[24]" and destination register "lcd_driver:u_lcd|state.REFRESH_WAIT" (period= 8.778 ns)
+    Info: + Longest register to register delay is 8.508 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X31_Y16_N8; Fanout = 4; REG Node = 'lcd_driver:u_lcd|delay_cnt[24]'
+        Info: 2: + IC(1.291 ns) + CELL(0.292 ns) = 1.583 ns; Loc. = LC_X32_Y15_N3; Fanout = 1; COMB Node = 'lcd_driver:u_lcd|LessThan0~0'
+        Info: 3: + IC(0.182 ns) + CELL(0.114 ns) = 1.879 ns; Loc. = LC_X32_Y15_N4; Fanout = 3; COMB Node = 'lcd_driver:u_lcd|LessThan0~1'
+        Info: 4: + IC(1.242 ns) + CELL(0.590 ns) = 3.711 ns; Loc. = LC_X31_Y18_N1; Fanout = 3; COMB Node = 'lcd_driver:u_lcd|Equal7~2'
+        Info: 5: + IC(0.182 ns) + CELL(0.114 ns) = 4.007 ns; Loc. = LC_X31_Y18_N2; Fanout = 5; COMB Node = 'lcd_driver:u_lcd|Equal7~4'
+        Info: 6: + IC(1.211 ns) + CELL(0.114 ns) = 5.332 ns; Loc. = LC_X32_Y15_N5; Fanout = 2; COMB Node = 'lcd_driver:u_lcd|delay_cnt[27]~288'
+        Info: 7: + IC(1.192 ns) + CELL(0.442 ns) = 6.966 ns; Loc. = LC_X32_Y16_N5; Fanout = 3; COMB Node = 'lcd_driver:u_lcd|Selector33~3'
+        Info: 8: + IC(1.233 ns) + CELL(0.309 ns) = 8.508 ns; Loc. = LC_X31_Y15_N9; Fanout = 27; REG Node = 'lcd_driver:u_lcd|state.REFRESH_WAIT'
+        Info: Total cell delay = 1.975 ns ( 23.21 % )
+        Info: Total interconnect delay = 6.533 ns ( 76.79 % )
+    Info: - Smallest clock skew is -0.009 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 3.178 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 221; CLK Node = 'clk'
+            Info: 2: + IC(0.998 ns) + CELL(0.711 ns) = 3.178 ns; Loc. = LC_X31_Y15_N9; Fanout = 27; REG Node = 'lcd_driver:u_lcd|state.REFRESH_WAIT'
+            Info: Total cell delay = 2.180 ns ( 68.60 % )
+            Info: Total interconnect delay = 0.998 ns ( 31.40 % )
+        Info: - Longest clock path from clock "clk" to source register is 3.187 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 221; CLK Node = 'clk'
+            Info: 2: + IC(1.007 ns) + CELL(0.711 ns) = 3.187 ns; Loc. = LC_X31_Y16_N8; Fanout = 4; REG Node = 'lcd_driver:u_lcd|delay_cnt[24]'
+            Info: Total cell delay = 2.180 ns ( 68.40 % )
+            Info: Total interconnect delay = 1.007 ns ( 31.60 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Micro setup delay of destination is 0.037 ns
+Info: tsu for register "timer_cnt[25]" (data pin = "clr", clock pin = "clk") is 12.482 ns
+    Info: + Longest pin to register delay is 15.556 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_1; Fanout = 19; PIN Node = 'clr'
+        Info: 2: + IC(10.973 ns) + CELL(0.590 ns) = 13.032 ns; Loc. = LC_X40_Y12_N9; Fanout = 31; COMB Node = 'timer_cnt[31]~106'
+        Info: 3: + IC(1.657 ns) + CELL(0.867 ns) = 15.556 ns; Loc. = LC_X38_Y10_N6; Fanout = 3; REG Node = 'timer_cnt[25]'
+        Info: Total cell delay = 2.926 ns ( 18.81 % )
+        Info: Total interconnect delay = 12.630 ns ( 81.19 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 3.111 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 221; CLK Node = 'clk'
+        Info: 2: + IC(0.931 ns) + CELL(0.711 ns) = 3.111 ns; Loc. = LC_X38_Y10_N6; Fanout = 3; REG Node = 'timer_cnt[25]'
+        Info: Total cell delay = 2.180 ns ( 70.07 % )
+        Info: Total interconnect delay = 0.931 ns ( 29.93 % )
+Info: tco from clock "clk" to destination pin "s[6]" through register "digit_val[2]" is 13.354 ns
+    Info: + Longest clock path from clock "clk" to source register is 3.178 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 221; CLK Node = 'clk'
+        Info: 2: + IC(0.998 ns) + CELL(0.711 ns) = 3.178 ns; Loc. = LC_X39_Y13_N1; Fanout = 7; REG Node = 'digit_val[2]'
+        Info: Total cell delay = 2.180 ns ( 68.60 % )
+        Info: Total interconnect delay = 0.998 ns ( 31.40 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 9.952 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X39_Y13_N1; Fanout = 7; REG Node = 'digit_val[2]'
+        Info: 2: + IC(5.704 ns) + CELL(0.590 ns) = 6.294 ns; Loc. = LC_X1_Y22_N8; Fanout = 1; COMB Node = 's~52'
+        Info: 3: + IC(1.534 ns) + CELL(2.124 ns) = 9.952 ns; Loc. = PIN_17; Fanout = 0; PIN Node = 's[6]'
+        Info: Total cell delay = 2.714 ns ( 27.27 % )
+        Info: Total interconnect delay = 7.238 ns ( 72.73 % )
+Info: th for register "keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3]" (data pin = "colk[3]", clock pin = "clk") is -4.841 ns
+    Info: + Longest clock path from clock "clk" to destination register is 3.187 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 221; CLK Node = 'clk'
+        Info: 2: + IC(1.007 ns) + CELL(0.711 ns) = 3.187 ns; Loc. = LC_X47_Y21_N9; Fanout = 6; REG Node = 'keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3]'
+        Info: Total cell delay = 2.180 ns ( 68.40 % )
+        Info: Total interconnect delay = 1.007 ns ( 31.60 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 8.043 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_168; Fanout = 1; PIN Node = 'colk[3]'
+        Info: 2: + IC(5.701 ns) + CELL(0.114 ns) = 7.284 ns; Loc. = LC_X47_Y21_N5; Fanout = 21; COMB Node = 'keybpg:u_key|sel4:u1|y~8'
+        Info: 3: + IC(0.450 ns) + CELL(0.309 ns) = 8.043 ns; Loc. = LC_X47_Y21_N9; Fanout = 6; REG Node = 'keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated|safe_q[3]'
+        Info: Total cell delay = 1.892 ns ( 23.52 % )
+        Info: Total interconnect delay = 6.151 ns ( 76.48 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 190 megabytes
+    Info: Processing ended: Tue Apr 21 13:57:05 2026
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

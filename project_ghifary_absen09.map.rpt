@@ -1,0 +1,415 @@
+Analysis & Synthesis report for project_ghifary_absen09
+Tue Apr 21 13:56:58 2026
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |project_ghifary_absen09|current_st
+  8. State Machine - |project_ghifary_absen09|lcd_driver:u_lcd|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for keybpg:u_key|LPM_COUNTER:count4
+ 14. Parameter Settings for User Entity Instance: keybpg:u_key|LPM_COUNTER:count4
+ 15. Port Connectivity Checks: "keybpg:u_key"
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue Apr 21 13:56:58 2026        ;
+; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
+; Revision Name               ; project_ghifary_absen09                      ;
+; Top-level Entity Name       ; project_ghifary_absen09                      ;
+; Family                      ; Cyclone                                      ;
+; Total logic elements        ; 458                                          ;
+; Total pins                  ; 36                                           ;
+; Total virtual pins          ; 0                                            ;
+; Total memory bits           ; 0                                            ;
+; Total PLLs                  ; 0                                            ;
++-----------------------------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                    ;
++--------------------------------------------------------------+-------------------------+-------------------------+
+; Option                                                       ; Setting                 ; Default Value           ;
++--------------------------------------------------------------+-------------------------+-------------------------+
+; Device                                                       ; EP1C12Q240C8            ;                         ;
+; Top-level entity name                                        ; project_ghifary_absen09 ; project_ghifary_absen09 ;
+; Family name                                                  ; Cyclone                 ; Stratix II              ;
+; Use Generated Physical Constraints File                      ; Off                     ;                         ;
+; Use smart compilation                                        ; Off                     ; Off                     ;
+; Restructure Multiplexers                                     ; Auto                    ; Auto                    ;
+; Create Debugging Nodes for IP Cores                          ; Off                     ; Off                     ;
+; Preserve fewer node names                                    ; On                      ; On                      ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                     ; Off                     ;
+; Verilog Version                                              ; Verilog_2001            ; Verilog_2001            ;
+; VHDL Version                                                 ; VHDL93                  ; VHDL93                  ;
+; State Machine Processing                                     ; Auto                    ; Auto                    ;
+; Safe State Machine                                           ; Off                     ; Off                     ;
+; Extract Verilog State Machines                               ; On                      ; On                      ;
+; Extract VHDL State Machines                                  ; On                      ; On                      ;
+; Ignore Verilog initial constructs                            ; Off                     ; Off                     ;
+; Iteration limit for constant Verilog loops                   ; 5000                    ; 5000                    ;
+; Iteration limit for non-constant Verilog loops               ; 250                     ; 250                     ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                      ; On                      ;
+; Parallel Synthesis                                           ; Off                     ; Off                     ;
+; NOT Gate Push-Back                                           ; On                      ; On                      ;
+; Power-Up Don't Care                                          ; On                      ; On                      ;
+; Remove Redundant Logic Cells                                 ; Off                     ; Off                     ;
+; Remove Duplicate Registers                                   ; On                      ; On                      ;
+; Ignore CARRY Buffers                                         ; Off                     ; Off                     ;
+; Ignore CASCADE Buffers                                       ; Off                     ; Off                     ;
+; Ignore GLOBAL Buffers                                        ; Off                     ; Off                     ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                     ; Off                     ;
+; Ignore LCELL Buffers                                         ; Off                     ; Off                     ;
+; Ignore SOFT Buffers                                          ; On                      ; On                      ;
+; Limit AHDL Integers to 32 Bits                               ; Off                     ; Off                     ;
+; Optimization Technique                                       ; Balanced                ; Balanced                ;
+; Carry Chain Length                                           ; 70                      ; 70                      ;
+; Auto Carry Chains                                            ; On                      ; On                      ;
+; Auto Open-Drain Pins                                         ; On                      ; On                      ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                     ; Off                     ;
+; Auto ROM Replacement                                         ; On                      ; On                      ;
+; Auto RAM Replacement                                         ; On                      ; On                      ;
+; Auto Shift Register Replacement                              ; Auto                    ; Auto                    ;
+; Auto Clock Enable Replacement                                ; On                      ; On                      ;
+; Strict RAM Replacement                                       ; Off                     ; Off                     ;
+; Allow Synchronous Control Signals                            ; On                      ; On                      ;
+; Force Use of Synchronous Clear Signals                       ; Off                     ; Off                     ;
+; Auto RAM Block Balancing                                     ; On                      ; On                      ;
+; Auto RAM to Logic Cell Conversion                            ; Off                     ; Off                     ;
+; Auto Resource Sharing                                        ; Off                     ; Off                     ;
+; Allow Any RAM Size For Recognition                           ; Off                     ; Off                     ;
+; Allow Any ROM Size For Recognition                           ; Off                     ; Off                     ;
+; Allow Any Shift Register Size For Recognition                ; Off                     ; Off                     ;
+; Use LogicLock Constraints during Resource Balancing          ; On                      ; On                      ;
+; Ignore translate_off and synthesis_off directives            ; Off                     ; Off                     ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                      ; On                      ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                     ; Off                     ;
+; Synchronization Register Chain Length                        ; 2                       ; 2                       ;
+; PowerPlay Power Optimization                                 ; Normal compilation      ; Normal compilation      ;
+; HDL message level                                            ; Level2                  ; Level2                  ;
+; Suppress Register Optimization Related Messages              ; Off                     ; Off                     ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                     ; 100                     ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                     ; 100                     ;
+; Clock MUX Protection                                         ; On                      ; On                      ;
+; Block Design Naming                                          ; Auto                    ; Auto                    ;
+; Synthesis Effort                                             ; Auto                    ; Auto                    ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                      ; On                      ;
+; Analysis & Synthesis Message Level                           ; Medium                  ; Medium                  ;
++--------------------------------------------------------------+-------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
+; keybpg.vhd                       ; yes             ; User VHDL File               ; D:/barra/Altera FPGA/quartus/Project/Ujian/keybpg.vhd                        ;
+; lcd_driver.vhd                   ; yes             ; User VHDL File               ; D:/barra/Altera FPGA/quartus/Project/Ujian/lcd_driver.vhd                    ;
+; debounceg.vhd                    ; yes             ; User VHDL File               ; D:/barra/Altera FPGA/quartus/Project/Ujian/debounceg.vhd                     ;
+; project_ghifary_absen09.vhd      ; yes             ; User VHDL File               ; D:/barra/Altera FPGA/quartus/Project/Ujian/project_ghifary_absen09.vhd       ;
+; keypad_logic.vhd                 ; yes             ; User VHDL File               ; D:/barra/Altera FPGA/quartus/Project/Ujian/keypad_logic.vhd                  ;
+; LPM_COUNTER.tdf                  ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/LPM_COUNTER.tdf         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; cmpconst.inc                     ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; dffeea.inc                       ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/dffeea.inc              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; aglobal90.inc                    ; yes             ; Megafunction                 ; d:/barra/altera fpga/quartus/libraries/megafunctions/aglobal90.inc           ;
+; db/cntr_n8i.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/barra/Altera FPGA/quartus/Project/Ujian/db/cntr_n8i.tdf                   ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 458   ;
+;     -- Combinational with no register       ; 237   ;
+;     -- Register only                        ; 14    ;
+;     -- Combinational with a register        ; 207   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 169   ;
+;     -- 3 input functions                    ; 71    ;
+;     -- 2 input functions                    ; 193   ;
+;     -- 1 input functions                    ; 11    ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 295   ;
+;     -- arithmetic mode                      ; 163   ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 123   ;
+;     -- asynchronous clear/load mode         ; 14    ;
+;                                             ;       ;
+; Total registers                             ; 221   ;
+; Total logic cells in carry chains           ; 171   ;
+; I/O pins                                    ; 36    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 221   ;
+; Total fan-out                               ; 1805  ;
+; Average fan-out                             ; 3.65  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                              ; Library Name ;
++------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------+--------------+
+; |project_ghifary_absen09           ; 458 (232)   ; 221          ; 0           ; 36   ; 0            ; 237 (95)     ; 14 (8)            ; 207 (129)        ; 171 (112)       ; 0 (0)      ; |project_ghifary_absen09                                                         ; work         ;
+;    |keybpg:u_key|                  ; 39 (4)      ; 26           ; 0           ; 0    ; 0            ; 13 (0)       ; 4 (4)             ; 22 (0)           ; 20 (0)          ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key                                            ; work         ;
+;       |debounceg:u0|               ; 23 (23)     ; 16           ; 0           ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 16 (16)          ; 16 (16)         ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|debounceg:u0                               ; work         ;
+;       |decod4:u2|                  ; 4 (4)       ; 0            ; 0           ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|decod4:u2                                  ; work         ;
+;       |keyps4:u3|                  ; 2 (2)       ; 2            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|keyps4:u3                                  ; work         ;
+;       |lpm_counter:count4|         ; 4 (0)       ; 4            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (0)            ; 4 (0)           ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|lpm_counter:count4                         ; work         ;
+;          |cntr_n8i:auto_generated| ; 4 (4)       ; 4            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 4 (4)           ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|lpm_counter:count4|cntr_n8i:auto_generated ; work         ;
+;       |sel4:u1|                    ; 2 (2)       ; 0            ; 0           ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |project_ghifary_absen09|keybpg:u_key|sel4:u1                                    ; work         ;
+;    |lcd_driver:u_lcd|              ; 187 (187)   ; 58           ; 0           ; 0    ; 0            ; 129 (129)    ; 2 (2)             ; 56 (56)          ; 39 (39)         ; 0 (0)      ; |project_ghifary_absen09|lcd_driver:u_lcd                                        ; work         ;
++------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------+
+; State Machine - |project_ghifary_absen09|current_st                                                     ;
++----------------------+-------------------+----------------------+---------------------+-----------------+
+; Name                 ; current_st.RED_ST ; current_st.YELLOW_ST ; current_st.GREEN_ST ; current_st.IDLE ;
++----------------------+-------------------+----------------------+---------------------+-----------------+
+; current_st.IDLE      ; 0                 ; 0                    ; 0                   ; 0               ;
+; current_st.GREEN_ST  ; 0                 ; 0                    ; 1                   ; 1               ;
+; current_st.YELLOW_ST ; 0                 ; 1                    ; 0                   ; 1               ;
+; current_st.RED_ST    ; 1                 ; 0                    ; 0                   ; 1               ;
++----------------------+-------------------+----------------------+---------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |project_ghifary_absen09|lcd_driver:u_lcd|state                         ;
++--------------------+-----------------+--------------------+------------+----------------+
+; Name               ; state.SEND_CHAR ; state.REFRESH_WAIT ; state.INIT ; state.POWER_UP ;
++--------------------+-----------------+--------------------+------------+----------------+
+; state.POWER_UP     ; 0               ; 0                  ; 0          ; 0              ;
+; state.INIT         ; 0               ; 0                  ; 1          ; 1              ;
+; state.REFRESH_WAIT ; 0               ; 1                  ; 0          ; 1              ;
+; state.SEND_CHAR    ; 1               ; 0                  ; 0          ; 1              ;
++--------------------+-----------------+--------------------+------------+----------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; selout[3]~reg0                        ; Stuck at GND due to stuck port data_in ;
+; selout[2]~reg0                        ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 221   ;
+; Number of registers using Synchronous Clear  ; 104   ;
+; Number of registers using Synchronous Load   ; 19    ;
+; Number of registers using Asynchronous Clear ; 14    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 118   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; d1[3]                                  ; 1       ;
+; d1[2]                                  ; 1       ;
+; d1[1]                                  ; 1       ;
+; d1[0]                                  ; 1       ;
+; d2[3]                                  ; 2       ;
+; d2[2]                                  ; 2       ;
+; d2[1]                                  ; 2       ;
+; d2[0]                                  ; 2       ;
+; Total number of inverted registers = 8 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |project_ghifary_absen09|keybpg:u_key|debounceg:u0|count[0] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |project_ghifary_absen09|digit_val[1]                       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |project_ghifary_absen09|keybpg:u_key|keyps4:u3|stdp[1]     ;
+; 5:1                ; 28 bits   ; 84 LEs        ; 28 LEs               ; 56 LEs                 ; Yes        ; |project_ghifary_absen09|timer_cnt[29]                      ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 7 LEs                ; 35 LEs                 ; Yes        ; |project_ghifary_absen09|lcd_driver:u_lcd|char_index[1]     ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |project_ghifary_absen09|timer_cnt[2]                       ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 32 LEs               ; 192 LEs                ; Yes        ; |project_ghifary_absen09|lcd_driver:u_lcd|delay_cnt[27]     ;
+; 148:1              ; 5 bits    ; 490 LEs       ; 260 LEs              ; 230 LEs                ; Yes        ; |project_ghifary_absen09|lcd_driver:u_lcd|d[5]              ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |project_ghifary_absen09|s~39                               ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; No         ; |project_ghifary_absen09|lcd_driver:u_lcd|Selector33        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Source assignments for keybpg:u_key|LPM_COUNTER:count4 ;
++---------------------------+-------+------+-------------+
+; Assignment                ; Value ; From ; To          ;
++---------------------------+-------+------+-------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -           ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -           ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -           ;
++---------------------------+-------+------+-------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keybpg:u_key|LPM_COUNTER:count4 ;
++------------------------+-------------------+---------------------------------+
+; Parameter Name         ; Value             ; Type                            ;
++------------------------+-------------------+---------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                  ;
+; LPM_WIDTH              ; 4                 ; Signed Integer                  ;
+; LPM_DIRECTION          ; DEFAULT           ; Untyped                         ;
+; LPM_MODULUS            ; 0                 ; Signed Integer                  ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                         ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                         ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                         ;
+; DEVICE_FAMILY          ; Cyclone           ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                         ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH              ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK              ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                         ;
+; LABWIDE_SCLR           ; ON                ; Untyped                         ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                         ;
+; CBXI_PARAMETER         ; cntr_n8i          ; Untyped                         ;
++------------------------+-------------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keybpg:u_key"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; pck4 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue Apr 21 13:56:54 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off project_ghifary_absen09 -c project_ghifary_absen09
+Info: Found 2 design units, including 1 entities, in source file keybpg.vhd
+    Info: Found design unit 1: keybpg-arch
+    Info: Found entity 1: keybpg
+Info: Found 2 design units, including 1 entities, in source file lcd_driver.vhd
+    Info: Found design unit 1: lcd_driver-behavior
+    Info: Found entity 1: lcd_driver
+Info: Found 2 design units, including 1 entities, in source file debounceg.vhd
+    Info: Found design unit 1: debounceg-arch
+    Info: Found entity 1: debounceg
+Info: Found 2 design units, including 1 entities, in source file project_ghifary_absen09.vhd
+    Info: Found design unit 1: project_ghifary_absen09-arch
+    Info: Found entity 1: project_ghifary_absen09
+Info: Found 6 design units, including 3 entities, in source file keypad_logic.vhd
+    Info: Found design unit 1: decod4-arch
+    Info: Found design unit 2: sel4-arch
+    Info: Found design unit 3: keyps4-arch
+    Info: Found entity 1: decod4
+    Info: Found entity 2: sel4
+    Info: Found entity 3: keyps4
+Info: Elaborating entity "project_ghifary_absen09" for the top level hierarchy
+Info: Elaborating entity "keybpg" for hierarchy "keybpg:u_key"
+Info: Elaborating entity "LPM_COUNTER" for hierarchy "keybpg:u_key|LPM_COUNTER:count4"
+Info: Elaborated megafunction instantiation "keybpg:u_key|LPM_COUNTER:count4"
+Info: Instantiated megafunction "keybpg:u_key|LPM_COUNTER:count4" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "4"
+    Info: Parameter "LPM_MODULUS" = "0"
+    Info: Parameter "LPM_DIRECTION" = "UNUSED"
+    Info: Parameter "LPM_AVALUE" = "UNUSED"
+    Info: Parameter "LPM_SVALUE" = "UNUSED"
+    Info: Parameter "LPM_PORT_UPDOWN" = "PORT_CONNECTIVITY"
+    Info: Parameter "LPM_PVALUE" = "UNUSED"
+    Info: Parameter "LPM_TYPE" = "LPM_COUNTER"
+    Info: Parameter "LPM_HINT" = "UNUSED"
+Info: Found 1 design units, including 1 entities, in source file db/cntr_n8i.tdf
+    Info: Found entity 1: cntr_n8i
+Info: Elaborating entity "cntr_n8i" for hierarchy "keybpg:u_key|LPM_COUNTER:count4|cntr_n8i:auto_generated"
+Info: Elaborating entity "debounceg" for hierarchy "keybpg:u_key|debounceg:u0"
+Info: Elaborating entity "sel4" for hierarchy "keybpg:u_key|sel4:u1"
+Info: Elaborating entity "decod4" for hierarchy "keybpg:u_key|decod4:u2"
+Info: Elaborating entity "keyps4" for hierarchy "keybpg:u_key|keyps4:u3"
+Info: Elaborating entity "lcd_driver" for hierarchy "lcd_driver:u_lcd"
+Warning: Tri-state node(s) do not directly drive top-level pin(s)
+    Warning: Converted tri-state buffer "keybpg:u_key|sel4:u1|y" feeding internal logic into a wire
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "selout[2]" is stuck at GND
+    Warning (13410): Pin "selout[3]" is stuck at GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+Info: Registers with preset signals will power-up high
+Info: Implemented 494 device resources after synthesis - the final resource count might be different
+    Info: Implemented 7 input pins
+    Info: Implemented 29 output pins
+    Info: Implemented 458 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 252 megabytes
+    Info: Processing ended: Tue Apr 21 13:56:58 2026
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+
